@@ -1,0 +1,141 @@
+body {
+    font-family: 'Crimson Text', Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f5e6d3;
+    background-image: url('https://www.transparenttextures.com/patterns/paper.png');
+}
+
+h1 {
+    position: fixed;
+    top: 2rem;
+    font-size: 2.5rem;
+    color: #2c1810;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff9f0;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(44, 24, 16, 0.15);
+    border: 1px solid #d4c4b7;
+    margin-top: 4rem;
+}
+
+.toggle-container {
+    margin: 2rem 0;
+}
+
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+}
+
+.toggle-input {
+    display: none;
+}
+
+.toggle-label {
+    display: block;
+    width: 160px;
+    height: 44px;
+    background: #d4c4b7;
+    border-radius: 22px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.toggle-label::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    border-radius: 20px;
+    top: 2px;
+    left: 2px;
+    background: #fff9f0;
+    transition: 0.3s;
+    box-shadow: 0 2px 5px rgba(44, 24, 16, 0.2);
+}
+
+.toggle-input:checked + .toggle-label {
+    background: #5c7c67;
+}
+
+.toggle-input:checked + .toggle-label::after {
+    left: calc(100% - 2px);
+    transform: translateX(-100%);
+}
+
+.toggle-text-work, .toggle-text-break {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.3s;
+    z-index: 1;
+}
+
+.toggle-text-work {
+    left: 20px;
+    color: #2c1810;
+}
+
+.toggle-text-break {
+    right: 20px;
+    color: #2c1810;
+}
+
+.toggle-input:checked ~ .toggle-label .toggle-text-work {
+    color: #fff9f0;
+}
+
+.timer {
+    font-size: 7rem;
+    font-weight: bold;
+    margin: 3rem 0;
+    color: #2c1810;
+    font-family: 'Crimson Text', Georgia, serif;
+}
+
+.controls button {
+    font-size: 1.2rem;
+    margin: 0 1rem;
+    padding: 0.7rem 2rem;
+    cursor: pointer;
+    color: #fff9f0;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Crimson Text', Georgia, serif;
+    transition: all 0.3s ease;
+}
+
+#start {
+    background-color: #5c7c67;
+}
+
+#start:hover {
+    background-color: #4a6353;
+}
+
+#reset {
+    background-color: #8b4513;
+}
+
+#reset:hover {
+    background-color: #723a0f;
+}
+
+.mode {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    color: #2c1810;
+} 
