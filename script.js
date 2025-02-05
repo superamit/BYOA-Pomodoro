@@ -74,7 +74,7 @@ function switchMode() {
     gsap.to('.container', {
         backgroundColor: isWorkTime ? '#fff9f0' : '#f7f7f7',
         duration: 0.5,
-        ease: "power2.inOut"
+        ease: "back.inOut"
     });
     
     gsap.to(modeText, {
@@ -122,9 +122,29 @@ function resetTimer() {
     timerId = null;
     isWorkTime = true;
     modeToggle.checked = false;
-    timeLeft = WORK_TIME;
     modeText.textContent = 'Work Time';
-    updateDisplay(timeLeft);
+
+    // Capture the current timer value (in seconds)
+    const currentTime = timeLeft;
+
+    // Create an object for tweening
+    const obj = { time: currentTime };
+
+    // Animate from the current time back to WORK_TIME (25 minutes)
+    gsap.to(obj, {
+        time: WORK_TIME,
+        duration: 1, // adjust the duration as needed
+        ease: "power2.inOut",
+        onUpdate: () => {
+            // Update the display with the rounded time value
+            updateDisplay(Math.round(obj.time));
+        },
+        onComplete: () => {
+            // Ensure the global timeLeft variable is updated
+            timeLeft = WORK_TIME;
+        }
+    });
+
     startButton.textContent = 'Start';
 }
 
